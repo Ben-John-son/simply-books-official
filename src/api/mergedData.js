@@ -21,6 +21,22 @@ const viewAuthorDetails = (authorFirebaseKey) =>
       .catch((error) => reject(error));
   });
 
+// const viewAuthorDetails = (firebaseKey) =>
+//   new Promise((resolve, reject) => {
+//     // GET SINGLE AUTHOR
+//     getSingleAuthor(firebaseKey)
+//       .then((authorObject) => {
+//         // return single author object, make an API call using this object.
+//         getAuthorBooks(authorObject.firebaseKey) // we nest this promise so that we can use the author object from above.
+//           .then((bookObject) => {
+//             const test = { ...authorObject, bookObject };
+//             console.warn(test);
+//             resolve(test);
+//           });
+//       })
+//       .catch(reject);
+//   });
+
 const deleteAuthorBooks = (authorId) =>
   new Promise((resolve, reject) => {
     getAuthorBooks(authorId)
