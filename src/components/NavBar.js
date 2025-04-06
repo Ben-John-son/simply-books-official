@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
+// import AuthorPage from '../app/author/page';
 
 export default function NavBar() {
   return (
@@ -18,8 +19,14 @@ export default function NavBar() {
             <Link className="nav-link" href="/">
               Books
             </Link>
-            <Link className="nav-link" href="/authors">
+            <Link className="nav-link" href="/author">
               Authors
+            </Link>
+            <Link className="nav-link" href="/authors">
+              Create Author
+            </Link>
+            <Link className="nav-link" href="/author">
+              Profile
             </Link>
           </Nav>
           <Button variant="danger" onClick={signOut}>
