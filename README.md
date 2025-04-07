@@ -67,6 +67,14 @@ The Minimum Viable Product (MVP) for the Simply Books project includes:
    - Users can add books to a cart and simulate purchasing them.
    - No real transaction will occur, but the UI will allow users to add items to the cart and check out.
 
+
+###Links:
+https://github.com/Ben-John-son/simply-books-official
+Netlify simplybooksbyben.netlify.app
+Firebase https://console.firebase.google.com/project/simply-books-545dd/database/simply-books-545dd-default-rtdb/data
+
+
+
 ### Guide to Getting Started
 Follow the deployment guide to get your app live!
 
