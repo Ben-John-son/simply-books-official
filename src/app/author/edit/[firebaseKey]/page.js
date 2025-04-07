@@ -1,24 +1,39 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { getSingleAuthor } from '@/api/authorData';
+import AuthorForm from '@/components/forms/AuthorForm';
 import PropTypes from 'prop-types';
-import { getSingleAuthor } from '../../../../api/authorData';
-import AuthorForm from '../../../../components/forms/AuthorForm';
 
 export default function EditAuthor({ params }) {
   const [editItem, setEditItem] = useState({});
-  // TODO: grab the firebasekey
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const { firebaseKey } = params;
 
-  // TODO: make a call to the API to get the book data
   useEffect(() => {
-    getSingleAuthor(firebaseKey).then(setEditItem);
+    if (firebaseKey) {
+      getSingleAuthor(firebaseKey)
+        .then((data) => {
+          setEditItem(data);
+          setIsLoading(false);
+        })
+        .catch((er) => {
+          setError('Failed to load author data.');
+          setIsLoading(false);
+          console.log(er);
+        });
+    }
   }, [firebaseKey]);
 
-  // TODO: pass object to form
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
   return <AuthorForm obj={editItem} />;
 }
 
 EditAuthor.propTypes = {
-  params: PropTypes.objectOf({}).isRequired,
+  params: PropTypes.shape({
+    firebaseKey: PropTypes.string.isRequired,
+  }).isRequired,
 };
