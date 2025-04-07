@@ -22,12 +22,12 @@ export default function NavBar() {
             <Link className="nav-link" href="/author">
               Authors
             </Link>
-            <Link className="nav-link" href="/authors">
+            {/* <Link className="nav-link" href="/authors">
               Create Author
-            </Link>
-            <Link className="nav-link" href="/author">
+            </Link> */}
+            {/* <Link className="nav-link" href="/author">
               Profile
-            </Link>
+            </Link> */}
           </Nav>
           <Button variant="danger" onClick={signOut}>
             Sign Out
